@@ -1,0 +1,13 @@
+* {
+	margin:0;
+	padding:0;
+}
+
+body {
+	font: .8em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.draggableCoin {
+	margin: 0;
+	padding: 0;
+}
