@@ -1,4 +1,4 @@
-var poo = new Array();
+var poo = new Array(1,2,3);
 
 var dragged = "";
 var dropped = "";
@@ -45,7 +45,7 @@ $(function() {
 				$(this).addClass('hover');
 				$("#droppable"+ dropped).droppable({disabled: true});
 			}
-
+			check_bets();
 			console.log(poo);
 		},
 		 over: function(e, ui){
@@ -82,6 +82,37 @@ function bet() {
 	}
 
 }
+
+function check_bets()
+{
+	console.log(poo);
+	console.log(poo.length);
+
+	var poo_post = build_poo_array();
+	if (poo_post.length == 3)
+	{
+		$.post('/api/vote/', {votes: poo_post}, function(response)
+			{
+				if (response.success == true) {
+					window.post_2_fb = response.data.post;
+					$('div.voting_buttons').fadeTo(1,1);
+				}
+			});
+	}
+
+}
+
+function build_poo_array()
+{
+	var poo_post = new Array();
+	for (item in poo) {
+		if (poo[item] != null) {
+			poo_post.push(poo[item]);
+		}
+	}
+	return poo_post;
+}
+
 
 function claim() {
 	var landsClaimed = 0;
