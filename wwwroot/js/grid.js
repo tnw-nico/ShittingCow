@@ -7,12 +7,21 @@ var draggableHeight = 28;
 var draggableWidth = 38;
 
 $(function() {
-	$( "[id^=draggable]" ).draggable({ revert: "invalid" });
+	$( "[id^=draggable]" ).draggable({revert: "invalid"});
+
+	$( "[id^=droppable]" ).each(function(data) {
+		var temp = "#droppable"+ (data + 1);
+		if ( $(temp).hasClass("hasLogo") == false) {
+			$(temp).droppable({disabled: true});
+		}
+	})
+
 
 	$( "[id^=droppable]" ).droppable({
 		activeClass: "ui-state-hover",
 		hoverClass: "ui-state-active",
 		drop: function( event, ui ) {
+
 			dragged = ui.draggable.attr('id');
 			dropped = $(this).attr('id');
 			var droppedOffset = $(this).offset();
@@ -23,7 +32,7 @@ $(function() {
 			dropped = dropped.replace('droppable', '');
 
 
-			$("#droppable"+ poo[dragged]).droppable({ disabled: false });
+			$("#droppable"+ poo[dragged]).droppable({disabled: false});
 
 
 			$("#droppable"+ poo[dragged]).removeClass('hover');
@@ -31,10 +40,10 @@ $(function() {
 			if (dropped == "null") {
 				poo.splice(dragged, 1);
 			} else {
-				$("#draggable"+ dragged).offset({ top: droppedOffset.top + (30 - (draggableHeight/2)), left: droppedOffset.left + (30 - (draggableWidth /2)) });
+				$("#draggable"+ dragged).offset({top: droppedOffset.top + (30 - (draggableHeight/2)), left: droppedOffset.left + (30 - (draggableWidth /2))});
 				poo[dragged] = dropped;
 				$(this).addClass('hover');
-				$("#droppable"+ dropped).droppable({ disabled: true });
+				$("#droppable"+ dropped).droppable({disabled: true});
 			}
 
 			console.log(poo);
@@ -47,6 +56,17 @@ $(function() {
 			$(this).removeClass('hover');
 			$(ui.helper).removeClass('hover');
 		}
+	});
+
+	$( "#dialog" ).dialog({
+		autoOpen: false,
+		show: "blind",
+		hide: "explode"
+	});
+
+	$( "#opener" ).click(function() {
+		$( "#dialog" ).dialog( "open" );
+		return false;
 	});
 });
 

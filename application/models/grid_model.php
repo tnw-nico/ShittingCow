@@ -5,7 +5,18 @@ class Grid_Model extends CI_Model {
 	public function get_grid() {
 		$grid = $this->db->get('tiles');
 		$grid_array = array();
+
+		$companies = $this->db->get('companies');
+		$company_array = array();
+		foreach ($companies->result_array() as $company)
+		{
+			$company_array[$company['id']] = $company;
+		}
+
 		foreach ($grid->result_array() as $tile) {
+			if ($tile['companyid'] > 0 && isset($company_array[ $tile['companyid'] ]) ) {
+				$tile['company'] = $company_array[ $tile['companyid'] ];
+			}
 			$grid_array[$tile['y']][$tile['x']] = $tile;
 		}
 

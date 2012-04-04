@@ -30,4 +30,6 @@
 	}
 	echo '</table>';
 	echo '</div>';
+
+	echo $popup;
 	?>

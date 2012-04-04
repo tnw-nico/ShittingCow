@@ -12,14 +12,23 @@
 		<p style="clear: both;"></p>
 	</div>
 	<div id=claimingOptions style='display:none'>
-		aa
 	</div>
 	<?php
 	echo '<table>';
 	foreach ($grid as $row) {
 		echo '<tr>';
 		foreach ($row as $tile) {
-			echo '<td id="droppable'. $tile['id'] .'" style="width: 60px; height: 60px;">'. $tile['id'] .'</td>';
+			$extra_class = "";
+			if (isset($tile['company'])) {
+				$extra_class = " hasLogo";
+			}
+			echo '<td id="droppable'. $tile['id'] .'" class="tile '. $extra_class .'">';
+
+			if (isset($tile['company'])) {
+				echo '<img src="/img/companies/logo/'. $tile['company']['logo'] .'" />';
+			}
+
+			echo '</td>';
 	//		echo '<div id="droppable'. $tile['id'] .'" class="droppable" style="float:left; width: 60px; height: 60px;">'. $tile['id'] .'</div>';
 		}
 		echo '</tr>';

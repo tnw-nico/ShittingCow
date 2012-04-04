@@ -326,6 +326,10 @@ td.hover {
 	background:url('../img/whiteGrass.png');
 }
 
+td.hasLogo {
+	background:url('../img/whiteGrass.png');
+}
+
 /* ==|== media queries ======================================================
    EXAMPLE Media Query for Responsive Design.
    This example overrides the primary ('mobile first') styles
@@ -386,4 +390,18 @@ td.hover {
 
 .draggableCoin {
 	width: 40px;
+}
+
+.tile {
+	width: 60px;
+	height: 60px;
+
+	vertical-align: middle;
+}
+
+.tile img {
+	max-height: 60px;
+	max-width: 60px;
+	margin-left: auto;
+	margin-right: auto;
 }
