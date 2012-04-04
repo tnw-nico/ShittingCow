@@ -29,16 +29,15 @@ class Api extends MY_Controller {
 				$search[] = $v;
 			}
 		}
-		$this->db->from('tiles')->where_in('id', $v);
+		$this->db->from('tiles')->where_in('id', $search);
 		$tiles = $this->db->get()->result();
 		foreach ($tiles as $tile) {
-			if ($tile->companyId != 0) {
+			if ($tile->companyId != 0 ) {
 				$save_votes[] = $tile->id;
 			}
 		}
 
 		$this->session->set_userdata('votes', $save_votes);
-
 		if (count($save_votes) == 0) {
 			print_json(false);
 		} else {
