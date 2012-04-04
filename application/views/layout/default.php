@@ -23,10 +23,25 @@
 	</head>
 	<body>
 
+		<script>
+		  window.fbAsyncInit = function() {
+		    FB.init({
+		      appId      : '134017016692571', // App ID
+		      status     : true, // check login status
+		      cookie     : true, // enable cookies to allow the server to access the session
+		      xfbml      : true  // parse XFBML
+		    });
+
+		    // Additional initialization code here
+		  };
+		</script>
+
+
+
 		<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
 
 		<div id=fb-root></div>
-		<fb:login-button autologoutlink=true perms="email,user_birthday,status_update,publish_stream"></fb:login-button>
+		<fb:login-button autologoutlink="true" scope=""></fb:login-button>
 		<a href='#' id=post>post to facebook!</a>
 
 		<div id=container>
@@ -69,8 +84,21 @@
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js" type="text/javascript"></script>
 
-		<script src='/js/script.js'></script>
-		<script src='/js/grid.js'></script>
+<!-- 		<script src='/js/script.js'></script>
+ -->		<script src='/js/grid.js'></script>
+
+ 	<script src='/js/dennis.js'></script>
+		<script>
+		  // Load the SDK Asynchronously
+		  (function(d){
+		     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+		     if (d.getElementById(id)) {return;}
+		     js = d.createElement('script'); js.id = id; js.async = true;
+		     js.src = "//connect.facebook.net/en_US/all.js";
+		     ref.parentNode.insertBefore(js, ref);
+		   }(document));
+		</script>
+
 
 		<script>
 		var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];

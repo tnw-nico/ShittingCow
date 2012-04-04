@@ -25,6 +25,12 @@ class Bet extends MY_Controller {
 		$this->layout_vars['content'] = $this->load->view('grid/bet', $this->view_vars, true);
 		$this->load->view($this->default_layout, $this->layout_vars);
 	}
+
+	public function twitter() {
+				$this->load->library('session');
+				echo "<pre>";
+		print_r($this->session);
+	}
 }
 
 /* End of file welcome.php */

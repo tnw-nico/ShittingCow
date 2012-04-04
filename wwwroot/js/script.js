@@ -40,7 +40,7 @@ $(function(){
 	// connect to the FB api
 	window.fbAsyncInit = function() {
 
-		FB.init({appId: '301115233293556', status: true, cookie: true, xfbml: true});
+		FB.init({appId: '134017016692571', status: true, cookie: true, xfbml: true});
 
 		/* All the events registered */
 		FB.Event.subscribe('auth.login', function(response) {
@@ -66,10 +66,10 @@ $(function(){
 		var body = 'testing...' + new Date().getTime();
 		FB.api('/me/feed', 'post', { message: body }, function(response) {
 			if (!response || response.error) {
-				log('Error occured');
-				log(response);
+				console.log('Error occured');
+				console.log(response);
 			} else {
-				log(response);
+				console.log(response);
 			}
 		});
 	}
@@ -89,9 +89,9 @@ $(function(){
 				if (response && response.post_id) {
 					published = true;
 					user.post = response;
-					log(user);
+					console.log(user);
 				} else {
-					log('not published');
+					console.log('not published');
 				}
 			}
 		);
@@ -99,11 +99,7 @@ $(function(){
 
 	// bind on click
 	$('#post').on('click', function() {
-		log('clicked');
-		if(logged) {
-			publish();
-		} else {
-			// you're not logged
-		}
+		console.log('clicked');
+		publish();
 	});
 });

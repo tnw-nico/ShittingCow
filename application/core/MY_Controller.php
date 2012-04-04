@@ -52,12 +52,17 @@ class MY_Controller extends CI_Controller {
 
 		$this->view_vars = array();
 		$this->layout_vars= array();
+		$this->load->library('session');
 
 		$this->default_layout = 'layout/default';
 //
 		$this->layout_vars['layout_title'] = "All your social stats in one spot - SocialStatistics";
 		$this->layout_vars['meta_description'] = "Track followers and engagement of your Facebook, Twitter and Google+ stats. All in one place.";
 		$this->layout_vars['canonical'] = current_url();
+
+
+		// loading default libraries
+
 	}
 }
 
@@ -79,4 +84,12 @@ function debug($var = ''	) {
 		$var = var_dump($var);
 	}
 	echo $var . "\n</pre>\n";
+}
+
+
+function print_json($success =false , $data = array()) {
+	$array = array('success' => $success, 'data' => $data);
+
+	echo json_encode($array);
+	exit();
 }
