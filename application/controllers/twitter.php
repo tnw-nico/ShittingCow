@@ -153,25 +153,24 @@ class Twitter extends CI_Controller
 					$this->load->model('vote_model');
 
 					$votes = $this->session->userdata('votes');
-debug($votes);
 					$data = array(
 						'status' => time() . $this->vote_model->create_tweet($votes)
 					);
 
-					debug($data);
 					$result = $this->connection->post('statuses/update', $data);
 					$this->load->model('user_model');
-					debug($result);
 					$result = ($this->user_model->save_social_user('twitter', $result->user->id, (array)$result));
-					debug($result);
 					if ($result !== false) {
 						if ($this->vote_model->save_votes($votes, $result) === TRUE) {
 							// what to do when somebody voted
+							redirect('/bet/index/vote_success');
 						} else {
 							// what to do when it went wrong
+							redirect('/bet/index/vote_error');
 						}
 					} else {
 						// could not save your vote, posted anyway
+						redirect('/bet/index/user_error');
 					}
 					exit();
 

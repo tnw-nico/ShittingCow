@@ -74,7 +74,7 @@ class Vote_Model extends CI_Model {
     		if ($key == $last_key) {
 	       		$votes_text = $votes_text . ' and ' . $tile->name;
     		} else {
-    			if (count($votes == 2)){
+    			if (count($votes) == 2){
 	    			$votes_text = $votes_text  . ' ' . $tile->name;
         		} else {
 	    			$votes_text = $votes_text  . ' ' . $tile->name . ',';

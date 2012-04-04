@@ -72,6 +72,7 @@ class Api extends MY_Controller {
 
 		if ($result != false) {
 			$this->load->model('vote_model');
+			$this->session->set_userdata('user_id', $result);
 
 			if ($this->vote_model->save_votes($votes, $result) === TRUE) {
 				print_json(true);

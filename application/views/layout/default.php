@@ -63,7 +63,7 @@
 				</div>
 			</div>
 
-			<div id=buttons class=clearfix>
+			<div id=buttons class=clearfix style="display:none;">
 				<a href='#' class='bigButton non-active' id=blueButton>Claim your field</a>
 				<div class=betweenButton>OR</div>
 				<a href='#' class='bigButton active' id=orangeButton>Place your bet</a>
@@ -84,10 +84,8 @@
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js" type="text/javascript"></script>
 
-<!-- 		<script src='/js/script.js'></script>
- -->		<script src='/js/grid.js'></script>
-
- 	<script src='/js/dennis.js'></script>
+		<script src='/js/grid.js'></script>
+	 	<script src='/js/dennis.js'></script>
 		<script>
 		  // Load the SDK Asynchronously
 		  (function(d){

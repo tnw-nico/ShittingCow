@@ -1,9 +1,12 @@
 <div id=grass class=clearfix>
 
-	<div id=bettingOptions>
-		<p style="float: right">
-			Select your fields below and <a class=smallButton href='#'>finalize your bet</a>
-		</p>
+	<div id="bettingOptions">
+		<div class="voting_buttons">
+			<p style="float: right">
+				<a class="smallButton" id="vote_with_twitter" href="">Vote with Twitter</a>
+				<a class="smallButton" id="vote_with_facebook" href="">Vote with Facebook</a>
+			</p>
+		</div>
 		<p style="float: right; padding-right: 40px;">
 			<img src="/img/poo.png" id="draggable0" class="draggableCoin" />
 			<img src="/img/poo.png" id="draggable1" class="draggableCoin" />

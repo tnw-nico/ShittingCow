@@ -14,8 +14,8 @@ class Grid_Model extends CI_Model {
 		}
 
 		foreach ($grid->result_array() as $tile) {
-			if ($tile['companyid'] > 0 && isset($company_array[ $tile['companyid'] ]) ) {
-				$tile['company'] = $company_array[ $tile['companyid'] ];
+			if ($tile['companyId'] > 0 && isset($company_array[ $tile['companyId'] ]) ) {
+				$tile['company'] = $company_array[ $tile['companyId'] ];
 			}
 			$grid_array[$tile['y']][$tile['x']] = $tile;
 		}
