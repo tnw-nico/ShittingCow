@@ -60,46 +60,5 @@ $(function(){
 		});
 	};
 
-	// this function posts a message to the timeline but without a link (just plain text)
-	// we do not want to use this function
-	function graphStreamPublish(){
-		var body = 'testing...' + new Date().getTime();
-		FB.api('/me/feed', 'post', { message: body }, function(response) {
-			if (!response || response.error) {
-				console.log('Error occured');
-				console.log(response);
-			} else {
-				console.log(response);
-			}
-		});
-	}
-
-	// this function posts a link to the timeline
-	function publish() {
-		FB.ui(
-			{
-				method: 'feed',
-				name: 'I think the cow is going to shit on A, B and C',
-				link: 'http://sctest.local/',
-				picture: 'http://fbrell.com/f8.jpg',
-				caption: 'The shitting cow',
-				description: 'During the TNW conference in April a cow is going to shit!'
-			},
-			function(response) {
-				if (response && response.post_id) {
-					published = true;
-					user.post = response;
-					console.log(user);
-				} else {
-					console.log('not published');
-				}
-			}
-		);
-	}
-
-	// bind on click
-	$('#post').on('click', function() {
-		console.log('clicked');
-		publish();
-	});
+	
 });

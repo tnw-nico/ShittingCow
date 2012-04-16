@@ -209,125 +209,53 @@ td { vertical-align: top; }
 .chromeframe { margin: 0.2em 0; background: #ccc; color: black; padding: 0.2em 0; }
 
 
-/* ==|== primary styles =====================================================
-   Author: Mike van Rossum
-   ========================================================================== */
-
-p {
-	font-size:18px;
-	color:#395056;
-}
-
-#title {
-	background:url('../img/title.png');
-	width:528px;
-	height:39px;
-	margin:auto;
-}
-
-#container {
-	width:927px;
-	padding:35px 0;
-	margin:auto;
-}
-
-#about {
-	margin-top:40px;
-	overflow:hidden;
-}
-
-#info {
-	padding-left:50px;
-	width:600px;
-	float:left;
-}
-
-#cow {
-	display:block;
-	float:left;
-}
-
 body {
 	background-color:#faf3d6;
 }
 
-.bigButton {
-	width:290px;
-	height:70px;
-	background-repeat:no-repeat;
+div#container
+{
+	width: 80%;
+	height: 800px;
 	display:block;
-	float:left;
+	margin-left:auto;
+	margin-right:auto;
+}
+img
+{
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:100px;
+	margin-bottom:auto;
+	display:block;
+}
+
+h1
+{
+	font-size: 55px;
+	font-family: "Patua One", "Arial Black";
 	text-align:center;
-	text-decoration:none;
-	line-height:68px;
+	color: #418e04;
+	font-weight: bold;
 }
 
-#buttons {
-	width:630px;
-	margin:30px auto 0;
+h1.divide
+{
+	border-bottom: 5px solid #8fdd06;
 }
 
-a.bigButton:hover {
-/*	color:;*/
+p
+{
+	font-size: 20px;
+	font-family: "Patua One", "Arial Black";
+	text-align:center;
+	color: #418e04;
 }
 
-.betweenButton {
-	float:left;
-	line-height:68px;
+a
+{
+	color: #625421;
 }
-
-#blueButton {
-	background-image:url('../img/blueButton.png');
-	color:#1c424c;
-}
-
-#orangeButton {
-	background-image:url('../img/orangeButton.png');
-	color:#624315;
-}
-
-.bigButton.non-active {
-	background-position:top center;
-}
-
-.bigButton.active {
-	background-position:bottom center;
-}
-
-#bettingOptions {
-	text-align:right;
-	margin-right:130px;
-	font-size:16px;
-}
-
-.smallButton {
-	color:white;
-	background:url('../img/smallButton.png') no-repeat center;
-	font-size:14px;
-	text-decoration:none;
-
-	padding:5px 20px 5px 20px;
-}
-
-#grass table {
-	cursor:pointer;
-}
-
-/*#grass td {
-	width:150px;
-	height:150px;
-	text-align: center;
-	border: 6px solid white;
-	background: url('../img/grass_small.png') no-repeat bottom;
-}*/
-
-td.hover {
-/*	background:url('../img/whiteGrass.png');
-*/}
-
-td.hasLogo {
-/*	background:url('../img/whiteGrass.png');
-*/}
 
 /* ==|== media queries ======================================================
    EXAMPLE Media Query for Responsive Design.
@@ -385,41 +313,4 @@ td.hasLogo {
   @page { margin: 0.5cm; }
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3 { page-break-after: avoid; }
-}
-
-.draggableCoin {
-	width: 90px;
-}
-
-.tile {
-	width: 60px;
-	height: 60px;
-
-	vertical-align: middle;
-}
-
-.tile img {
-	max-height: 120px;
-	max-width: 120px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: auto;
-	margin-bottom:auto;
-}
-
-
-
-
-#overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    filter:alpha(opacity=75);
-    -moz-opacity:0.75;
-    -khtml-opacity: 0.75;
-    opacity: 0.75;
-    z-index: 10000;
 }

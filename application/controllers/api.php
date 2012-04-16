@@ -80,6 +80,25 @@ class Api extends MY_Controller {
 		}
 		print_json(false);			// what to do when it went wrong
 	}
+
+	function email() {
+		$email = ($this->input->post('email'));
+		$user_id = $this->session->userdata('user_id');
+		if (empty($user_id)) {
+			print_json(false);
+		}
+		$this->load->model('user_model');
+		$this->db->limit(1)->from('users')->where('id', $this->session->userdata('user_id'));
+		$user = $this->db->get()->result();
+
+		if (count($user) != 1) {
+			print_json(false);
+		}
+		$data = array('email' => $email);
+		$this->db->where("id", $user_id);
+		$d = $this->db->update('users', $data);
+		print_json($d);
+	}
 }
 
 /* End of file welcome.php */

@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
 	<meta charset=utf-8>
+	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
 
 
 	<meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
@@ -10,11 +11,22 @@
 	<meta name=description content="">
 
 
-	<meta name=viewport content="width=device-width">
+	<meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=1"/> <!--320-->
 
 
 
 	<link rel=stylesheet href='/css/style.css'>
+
+	<link rel=stylesheet href='/css/homepage.css'>
+
+
+	<link rel="stylesheet" media="screen and (max-width: 800px)" href="/css/mobile.css" />
+
+	<link rel="stylesheet" href="/css/jquery.modal.css" type="text/css" media="screen" />
+	<link href='http://fonts.googleapis.com/css?family=Germania+One' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Viga' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
 
 
 
@@ -39,46 +51,41 @@
 
 
 		<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+		<div id="overlay" style="display:none;"> </div>
+		<div id="fb-root"></div>
 
-		<div id=fb-root></div>
-		<fb:login-button autologoutlink="true" scope=""></fb:login-button>
-		<a href='#' id=post>post to facebook!</a>
-
-		<div id=container>
-
-			<h1 class=ir id=title>
-				Where the cow shits
-			</h1>
-
-			<div id=about class=clearfix>
-				<img id=cow src='img/cow.png' alt='the shitting cow' width=197 height=199>
-				<div id=info>
-					<p>
-						During the TNW Conference in April, there will be a cow on a nearby field.
-						A cow that shits about 3 times a day. The field will be full of logo’s of the owner of each part. You’ll be able to see on a live camera feed where the cow will take a dump.
-					</p>
-					<p>
-						Claim your part of the field or place your bet on where the cow will leave it’s fecal matter.
-					</p>
-				</div>
+		<div id="container">
+			<div id="logo">
+				<img src="/img/header_logo.png">
 			</div>
 
-			<div id=buttons class=clearfix style="display:none;">
-				<a href='#' class='bigButton non-active' id=blueButton>Claim your field</a>
-				<div class=betweenButton>OR</div>
-				<a href='#' class='bigButton active' id=orangeButton>Place your bet</a>
+			<div id="intro">
+				<p class="center bold">During the TNW conference 2012 there will be a cow on a nearby field on april 26th</span>
+				<p class="center">The cow shits about 3 times a day. You can bet where the cow will drop its fecal matter</span>
+			</div>
+ 			<div id="grid">
+				<?php
+				echo $content;
+				?>
 			</div>
 
+			<div id="companies">
+				<p class="center big divide">Sponsors</p>
+			</div>
 
-			<?php
-			echo $content;
-			?>
-
+			<div id="votes">
+				<p class="center big divide">Your competition</p>
+			</div>
 		</div>
 
-
-
-
+		<div id="footer">
+			<div id="follow">
+				<p class="center">
+				<a href="https://twitter.com/dungville" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @dungville</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+				</p>
+			</div>
+		</div>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="/js/libs/jquery-1.7.2.min.js"><\/script>')</script>
 
@@ -86,6 +93,10 @@
 
 		<script src='/js/grid.js'></script>
 	 	<script src='/js/dennis.js'></script>
+
+		<script src="/js/jquery.modal.js" type="text/javascript" charset="utf-8"></script>
+
+
 		<script>
 		  // Load the SDK Asynchronously
 		  (function(d){
@@ -99,10 +110,13 @@
 
 
 		<script>
-		var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+		var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-729494-16']);
+		  _gaq.push(['_setDomainName', 'dungville.com']);
+		  _gaq.push(['_trackPageview']);
 		(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
 			g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
 			s.parentNode.insertBefore(g,s)}(document,'script'));
-			</script>
+		</script>
 		</body>
 		</html>

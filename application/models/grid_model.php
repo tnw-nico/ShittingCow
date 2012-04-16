@@ -30,14 +30,14 @@ class Grid_Model extends CI_Model {
 	public function build_grid() {
 		$y = 1;
 		$x = 1;
-		for ($i = 1; $i <= 90; $i++) {
+		for ($i = 1; $i <= 48; $i++) {
 
 			echo $x .'-'. $y .'|';
 
 			$query = "INSERT INTO tiles (id, x, y) VALUES ('". $i ."', '". $x ."', '". $y ."');";
-//			$this->db->query($query);
+			$this->db->query($query);
 
-			if ($i % 15 == 0) {
+			if ($i % 8 == 0) {
 				$y++;
 				$x = 0;
 				echo '<br />';

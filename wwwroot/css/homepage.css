@@ -1,0 +1,176 @@
+div#logo
+{
+	width:100%;
+}
+
+div#logo img, img.center
+{
+	margin-left:auto;
+	margin-right: auto;
+	display: block;
+}
+
+p.center
+{
+	color: #3d9148;
+	text-transform: uppercase;
+	display: block;
+	font-size: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	clear: both;
+	text-align: center;
+	display: block;
+	letter-spacing: -1px;
+	font-family: 'Patua One';
+}
+
+p.bold
+{
+	font-weight: bold;
+}
+
+
+p.big
+{
+	font-size: 3em;
+}
+div#intro
+{
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
+table#field
+{
+	width: 837px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+table#field td, table#field th
+{
+	width: 88px;
+	height: 50px;
+	border: 3px solid white;
+}
+
+
+
+table#field td.first
+{
+	vertical-align: middle;
+	background: url(/img/arrow.png) no-repeat 80% center;
+	border: 0px;
+	width: 50px;
+}
+
+table#field tr#header
+{
+	background-color: #faf3d6;
+}
+
+
+table#field
+{
+	background: url(/img/grass_texture.jpg) repeat-y 95px;
+}
+
+td.first p, th p
+{
+	color: white;
+	font-size: 18px;
+	float:right;
+	margin-right:30px;
+	font-weight: bold;
+}
+
+th p
+{
+	text-align: center;
+	float: none;
+	margin-right: 0px;
+	margin-top: 80%;
+}
+
+table#field th.circle
+{
+	vertical-align: middle;
+	background: url(/img/circle.png) no-repeat center 80%;
+	border: 3px solid #faf3d6;
+}
+table#field th
+{
+	border: 3px solid #faf3d6;
+}
+
+div#button
+{
+	margin-top: 25px;
+	margin-left: 100px;
+}
+
+div.modal p
+{
+	margin-left: 25%;
+	margin-right:25%;
+}
+
+p.divide
+{
+	border-bottom: 2px solid #8fdd06;
+}
+
+div#voting_buttons img
+{
+	margin-left: 25px;
+	margin-right: 25px;
+}
+
+div#betting_popup
+{
+	width:100%;
+}
+div.modal_content
+{
+	width: 100%;
+}
+
+p.big
+{
+	font-size: 40px;
+}
+
+input
+{
+	font-size: 35px;
+	border: 2px solid #8fdd06;
+	color: #3d9148;
+}
+
+input[type="submit"]
+{
+	font-weight: bold;
+	color: white;
+	background-color:  #3d9148;
+	border: 2px solid #8fdd06;
+}
+
+table#field
+{
+	margin-top: -65px;
+}
+
+td.tile img
+{
+	max-width: 85px;
+	max-height: 40px;
+}
+td.tile
+{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: auto;
+	margin-bottom:auto;
+}

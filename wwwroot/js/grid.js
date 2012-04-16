@@ -1,10 +1,12 @@
-var poo = new Array(1,2,3);
+var poo = new Array(null, null, null);
 
 var dragged = "";
 var dropped = "";
 
-var draggableHeight = 28;
-var draggableWidth = 38;
+var draggableHeight = 40;
+var draggableWidth = 40;
+
+var last = new Array();
 
 $(function() {
 	$( "[id^=draggable]" ).draggable({revert: "invalid"});
@@ -40,7 +42,7 @@ $(function() {
 			if (dropped == "null") {
 				poo.splice(dragged, 1);
 			} else {
-				$("#draggable"+ dragged).offset({top: droppedOffset.top + (30 - (draggableHeight/2)), left: droppedOffset.left + (30 - (draggableWidth /2))});
+				$("#draggable"+ dragged).offset({top: droppedOffset.top + (10 - (draggableHeight/2)), left: droppedOffset.left + (10 - (draggableWidth /2))});
 				poo[dragged] = dropped;
 				$(this).addClass('hover');
 				$("#droppable"+ dropped).droppable({disabled: true});
@@ -85,8 +87,6 @@ function bet() {
 
 function check_bets()
 {
-	console.log(poo);
-	console.log(poo.length);
 
 	var poo_post = build_poo_array();
 	if (poo_post.length == 3)
@@ -95,7 +95,7 @@ function check_bets()
 			{
 				if (response.success == true) {
 					window.post_2_fb = response.data.post;
-					$('div.voting_buttons').fadeTo(1,1);
+					$('div#button img').fadeTo(1,1);
 				}
 			});
 	}
@@ -104,12 +104,14 @@ function check_bets()
 
 function build_poo_array()
 {
+	var tiles = $("img.bucket:not(img.empty)");
 	var poo_post = new Array();
-	for (item in poo) {
-		if (poo[item] != null) {
-			poo_post.push(poo[item]);
-		}
-	}
+
+	$("img.bucket:not(img.empty)").each(function(e){
+		poo_post.push(parseInt($(this).attr("data-tile")));
+		console.log($(this));
+	});
+
 	return poo_post;
 }
 

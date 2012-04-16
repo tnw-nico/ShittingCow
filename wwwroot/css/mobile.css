@@ -1,0 +1,15 @@
+p.center
+{
+	font-size: 1.6em;
+}
+
+div#betting_popup
+{
+	width:1000px;
+}
+
+div.modal p
+{
+	margin-left: 10%;
+	margin-right: 10%;
+}
