@@ -95,7 +95,7 @@ function check_bets()
 			{
 				if (response.success == true) {
 					window.post_2_fb = response.data.post;
-					$('div#button img').fadeTo(1,1);
+					open_bet();
 				}
 			});
 	}

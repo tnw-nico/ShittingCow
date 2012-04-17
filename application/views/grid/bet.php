@@ -1,3 +1,7 @@
+<div id="button">
+	<p class="center bold">Pick three spots you think the cow will "hit"</p>
+</div>
+
 <div id="grass" class="clearfix">
 
 
@@ -41,11 +45,6 @@
 
 </div>
 
-<div id="button">
-	<p class="center bold">Pick three spots you think the cow will "hit"</p>
-
-<!-- 	<img src="/img/place_bet.png" class="center">
- --></div>
 
 <div id="betting_popup" class="modal">
 
@@ -56,7 +55,7 @@
 
 		<p class="center bold">You are betting on:</p>
 
-		<p class="center divide">Facebook, Dropbox and Twitter</p>
+		<p class="center divide" id="vote_text"></p>
 
 		<p class="center">You can bet using Facebook or Twitter</p>
 
@@ -97,12 +96,24 @@
 	<div class="modal_content" id="error" style="display:none;">
 		<p class="center bold big divide">Sorry, something went wrong</p>
 
-		<p class="center">If you think this is a bug, please let <a href="mailto:dennis@thenextweb.com">us know</a></p>
-	
+		<p class="center">Did you try to vote more then one time? You should not do that ;-)</p>
 
+		<p class="center">Why don't you invite your Facebook friends to play Dungville?</p>
+		<p class="center">
+			<img src="/img/invite.png" id="facebook_invite">
+		</p>
+		<p class="center">If you think this is a bug, please let <a href="mailto:dennis@thenextweb.com">us know</a></p>
 	</div>
 
 </div>
+
+
+<div class="modal_content" id="claim_popup" style="display:none;">
+	<img src="/img/claim.png" class="center">
+
+	<p class="center bold"></p>
+</div>
+
 
 	<img src="/img/vlaai.png" class="bucket empty" id="bucket0" data-tile="empty" style="display:none;position:absolute;" />
 	<img src="/img/vlaai.png" class="bucket empty" id="bucket1" data-tile="empty" style="display:none;position:absolute;" />

@@ -21,16 +21,8 @@
 
 
 	<link rel="stylesheet" media="screen and (max-width: 800px)" href="/css/mobile.css" />
-
 	<link rel="stylesheet" href="/css/jquery.modal.css" type="text/css" media="screen" />
-	<link href='http://fonts.googleapis.com/css?family=Germania+One' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Viga' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
-
-
-
-
 
 	</head>
 	<body>
@@ -76,6 +68,14 @@
 			<div id="votes">
 				<p class="center big divide">Your competition</p>
 			</div>
+
+			<div id="about">
+				<p class="center divide">Created with passion, love and care by:</p>
+
+				<p class="center" id="logo">
+					<a href="http://thenextweb.com"><img src="/img/tnw.png"></a>
+					<a href="http://natwerk.nl"><img src="/img/natwerk.png"></a>
+				</p>
 		</div>
 
 		<div id="footer">

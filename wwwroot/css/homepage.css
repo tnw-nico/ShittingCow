@@ -12,7 +12,7 @@ div#logo img, img.center
 
 p.center
 {
-	color: #3d9148;
+	color: #418e04;
 	text-transform: uppercase;
 	display: block;
 	font-size: 20px;
@@ -49,10 +49,14 @@ table#field
 	margin-right: auto;
 }
 
+table#field tr
+{
+	height: 65px;
+}
 table#field td, table#field th
 {
 	width: 88px;
-	height: 50px;
+	height: 65px;
 	border: 3px solid white;
 }
 
@@ -153,7 +157,7 @@ input[type="submit"]
 {
 	font-weight: bold;
 	color: white;
-	background-color:  #3d9148;
+	background-color:  #418e04;
 	border: 2px solid #8fdd06;
 }
 
@@ -165,7 +169,7 @@ table#field
 td.tile img
 {
 	max-width: 85px;
-	max-height: 40px;
+	max-height: 65px;
 }
 td.tile
 {
@@ -173,4 +177,10 @@ td.tile
 	margin-right: auto;
 	margin-top: auto;
 	margin-bottom:auto;
+}
+
+p#logo img
+{
+	margin-left:25px;
+	margin-right:25px;
 }

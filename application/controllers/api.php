@@ -88,16 +88,37 @@ class Api extends MY_Controller {
 			print_json(false);
 		}
 		$this->load->model('user_model');
-		$this->db->limit(1)->from('users')->where('id', $this->session->userdata('user_id'));
+		$this->db->limit(1)->from('users')->where('id', $user_id);
 		$user = $this->db->get()->result();
-
 		if (count($user) != 1) {
 			print_json(false);
 		}
-		$data = array('email' => $email);
+		$data = array('email' => $email, 'token' => md5(uniqid('dungville', true)));
 		$this->db->where("id", $user_id);
 		$d = $this->db->update('users', $data);
+
+		$this->db->from('votes')->join('tiles', 'tiles.id = votes.tileID')->join('companies', 'companies.id = tiles.companyId')->where('userID', $user_id);
+		$votes = $this->db->get()->result();
+
+		$this->mailchimp($email, $votes, $user, $data['token']);
 		print_json($d);
+	}
+
+	private function mailchimp($email, $votes, $user, $token) {
+		require_once(APPPATH.'/third_party/MCAPI.class.php');
+		$this->config->load('mailchimp');
+		$mc = new MCAPI($this->config->item('mailchimp_api'));
+
+		$merge_vars = array(	'FNAME'=> $user[0]->screenname,
+								'LNAME'=> '',
+								'COMP1' => $votes[0]->companyId,
+								'COMP2' => $votes[1]->companyId,
+								'COMP3' => $votes[2]->companyId,
+								'TOKEN' => $token,
+								'OPTIN_IP' =>  $_SERVER['REMOTE_ADDR'],
+								'OPTIN_TIME' => date('Y-M-D H:i:s'));
+
+		$result = $mc->listSubscribe( $this->config->item('mailchimp_list_id'), $email, $merge_vars, "html");
 	}
 }
 

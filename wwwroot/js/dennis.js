@@ -35,7 +35,7 @@ $(document).ready(function($)
 		check_bets();
 	});
 
-	$('a#facebook_invite').click(function() {
+	$('img#facebook_invite').click(function() {
 		make_fb_request();
 	});
 
@@ -102,8 +102,8 @@ $(document).ready(function($)
 
 function make_fb_request() {
   FB.ui({method: 'apprequests',
-    message: 'My Great Request', display: "iframe"
-  }, console.log(response));
+    message: 'My Great Request', display: "popup"
+  }, function(){console.log(response)});
 }
 
 
@@ -161,9 +161,13 @@ function open_email_thankyou(){
 
 function open_bet(){
 	$.modal.close();
+	$('p#vote_text').html(window.post_2_fb);
 	$('#betting_popup').modal({zIndex:150000});
 }
-
+function open_claim(){
+	$.modal.close();
+	$('#claim_popup').modal({zIndex:150000});
+}
 function validateEmail(email) {
     var re = /^([\w]+)(.[\w]+)*@([\w]+)(.[\w]{2,3}){1,2}$/;
     return re.test(email);

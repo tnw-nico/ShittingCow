@@ -59,7 +59,6 @@ class Twitter extends CI_Controller
 		{
 			// Making a request for request_token
 			$request_token = $this->connection->getRequestToken(base_url('/twitter/callback'));
-
 			$this->session->set_userdata('request_token', $request_token['oauth_token']);
 			$this->session->set_userdata('request_token_secret', $request_token['oauth_token_secret']);
 			
@@ -168,9 +167,7 @@ class Twitter extends CI_Controller
 						}
 					} else {
 						$call = "twitter_vote_failed()";
-
 					}
-					
 				}
 			}
 			else
@@ -184,7 +181,7 @@ class Twitter extends CI_Controller
 		//echo $call;
 		//exit();
 		$this->layout_vars['content'] = $this->load->view('twitter/vote', $this->view_vars, true);
-		$this->load->view('layout/default', $this->layout_vars);
+		$this->load->view('twitter/vote', $this->layout_vars);
 	}
 
 	function test() {
