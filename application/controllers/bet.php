@@ -22,8 +22,11 @@ class Bet extends MY_Controller {
 		$this->load->model('grid_model');
 //		$this->view_vars['grid'] = $this->grid_model->build_grid();
 
-		$this->view_vars['grid'] = $this->grid_model->get_grid();
+		$this->db->from('companies');
+		$companies = $this->db->get();
 
+		$this->view_vars['grid'] = $this->grid_model->get_grid();
+		$this->view_vars['companies'] = $companies;
 		$this->layout_vars['content'] = $this->load->view('grid/bet', $this->view_vars, true);
 		$this->load->view($this->default_layout, $this->layout_vars);
 	}

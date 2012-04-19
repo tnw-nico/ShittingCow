@@ -4,7 +4,7 @@ var dragged = "";
 var dropped = "";
 
 var draggableHeight = 40;
-var draggableWidth = 40;
+var draggableWidth = 20;
 
 var last = new Array();
 
@@ -96,6 +96,7 @@ function check_bets()
 				if (response.success == true) {
 					window.post_2_fb = response.data.post;
 					open_bet();
+					$('div#bet').slideDown("fast");
 				}
 			});
 	}
@@ -109,7 +110,6 @@ function build_poo_array()
 
 	$("img.bucket:not(img.empty)").each(function(e){
 		poo_post.push(parseInt($(this).attr("data-tile")));
-		console.log($(this));
 	});
 
 	return poo_post;

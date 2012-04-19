@@ -6,6 +6,17 @@ $(document).ready(function($)
 		publish();
 	});
 
+	$('img#bet_now').click(function(){
+		if (build_poo_array().length==3) {
+			overlay_in();
+			open_bet();
+			return false;
+		} else {
+			no_valid_votes();
+			return false;
+		}
+	});
+
 
 	$('div#button img').click(function(){
 		if (build_poo_array().length==3) {
@@ -28,7 +39,10 @@ $(document).ready(function($)
 			return false;
 		}
 	});
-
+	$('a.inline').click(function(){
+		$('#number_2').modal({zIndex:150000});
+		return false;
+	});
 	$('td.hasLogo').click(function(){
 		add_bucket($(this).attr('id').replace('droppable', ''));
 		build_poo_array();
@@ -43,7 +57,14 @@ $(document).ready(function($)
 	$('input#confirm_email').click(function(){
 		if(validateEmail($('input#email').val()) === true) {
 			$.post('/api/email', {email: $('input#email').val()}, function(response){
-				open_email_thankyou();
+				if (response.success == true)
+				{
+					open_email_thankyou();
+				}
+				else
+				{
+					open_email_error();
+				}
 			});
 		} else {
 			alert('Please provide us with a valid address');
@@ -72,11 +93,11 @@ $(document).ready(function($)
 		FB.ui(
 			{
 				method: 'feed',
-				name: 'I think the cow is going to shit on A, B and C',
-				link: 'http://sctest.local/',
-				picture: 'http://fbrell.com/f8.jpg',
-				caption: 'The shitting cow',
-				description: text
+				name: 'I think Klare will hit ' + text,
+				link: 'http://dungville.com/',
+				picture: 'http://dungville.com/img/klara_450.png',
+				caption: 'Dungville',
+				description: 'During The Next Web conference we have a special guest: Klara. She shits about three times a day. I think she will hit ' + text
 			},
 			function(response) {
 				if (response && response.post_id) {
@@ -158,7 +179,10 @@ function open_email_thankyou(){
 		$('div#email_thankyou').slideDown();
 	});
 }
-
+function open_email_error(){
+	$('p.error').slideDown();
+	$('p#email_form_input').fadeTo('fast', 0.5).fadeTo('fast',1);
+}
 function open_bet(){
 	$.modal.close();
 	$('p#vote_text').html(window.post_2_fb);
@@ -217,5 +241,5 @@ function add_bucket(to, from){
 	var tile = $('td#droppable'+to);
 	droppedOffset = tile.offset();
 	$(bucket).offset({top: droppedOffset.top + (30 - (draggableHeight/2)), left: droppedOffset.left + (40 - (draggableWidth /2))});
-	$(bucket).fadeIn().removeClass("empty").attr("data-tile" , to);
+	$(bucket).fadeIn('fast').removeClass("empty").attr("data-tile" , to);
 }

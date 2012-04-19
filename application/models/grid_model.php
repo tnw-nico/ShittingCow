@@ -19,7 +19,6 @@ class Grid_Model extends CI_Model {
 			}
 			$grid_array[$tile['y']][$tile['x']] = $tile;
 		}
-
 		return $grid_array;
 	}
 

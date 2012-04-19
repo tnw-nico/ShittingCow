@@ -14,8 +14,15 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://shittingcow.com';
-
+if (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on")
+{
+	$proto = "https://";
+}
+else
+{
+	$proto = "http://";
+}
+$config['base_url']	= $proto . $_SERVER["HTTP_HOST"];
 /*
 |--------------------------------------------------------------------------
 | Index File

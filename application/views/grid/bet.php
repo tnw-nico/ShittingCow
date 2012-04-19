@@ -1,5 +1,5 @@
 <div id="button">
-	<p class="center bold">Pick three spots you think the cow will "hit"</p>
+	<p class="center bold">Click three spots you think the cow will "hit"</p>
 </div>
 
 <div id="grass" class="clearfix">
@@ -51,19 +51,25 @@
 	<div class="modal_content" id="step_1">
 		<img src="/img/place_bet.png" class="center">
 
-		<p class="center divide">If all three companies you picked are hit by Klara's dung you can win one of the three full conference passes to The Next Web Latin America.</p>
-
-		<p class="center bold">You are betting on:</p>
+		<p class="center">You are betting on:</p>
 
 		<p class="center divide" id="vote_text"></p>
 
 		<p class="center">You can bet using Facebook or Twitter</p>
 
 		<div id="voting_buttons" class="center">
-			<p class="center">
+			<p class="center divide">
 				<img src="/img/twitter_vote.png" id="vote_with_twitter">
 				<img src="/img/facebook_vote.png" id="vote_with_facebook">
 			</p>
+		</div>
+		<div style="margin-left:25%;margin-right:25%;">
+
+			<p class="center" style="padding-left:20px;">
+				PS: You can win great prices!
+			</p>
+			<img width="90" src="/img/steak.png" style="float:right;margin-top:-60px;margin-right:15px;">
+
 		</div>
 	</div>
 
@@ -72,15 +78,17 @@
 
 		<div id="email_form">
 
-			<p class="center">To win of one of the full conference passes for TNW Latin America please leave your e-mail address.</p>
+			<p class="center">To win great prices and stay up to date on how Klara is doing please leave your e-mail address.</p>
 
-			<p class="center">
+			<p class="center" id="email_form_input">
 				<input type="text" id="email" name="email">
 				<input type="submit" value="Ok" id="confirm_email">
 			</p>
-
+			<p class="center error">
+				Make sure your e-mail address is valid, please try again.
+			</p>
 			<p class="center">
-				Your email will not be sold or spammend, promised!
+				Your email will not be sold or spammed, promised!
 			</p>
 		</div>
 
@@ -104,6 +112,21 @@
 		</p>
 		<p class="center">If you think this is a bug, please let <a href="mailto:dennis@thenextweb.com">us know</a></p>
 	</div>
+
+</div>
+
+
+<div class="modal_content" id="number_2" style="display:none;">
+	<p class="center big divide">What is a "number 2"?</p>
+
+	<p class="center">
+		According to the UrbanDictionary "number 2" is slang for <strong>poo</strong>.
+	</p>
+
+	<p class="center">
+		Synonyms are: shit, dung, faeces, crap and dump.
+	</p>
+
 
 </div>
 

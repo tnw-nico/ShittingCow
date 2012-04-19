@@ -152,8 +152,23 @@ class Twitter extends CI_Controller
 					$this->load->model('vote_model');
 
 					$votes = $this->session->userdata('votes');
+
+
+					$tweet = $this->vote_model->create_tweet($votes);
+
+
+
+					$options = array(
+					"My Dungville predictions are: " . $tweet . " dungville.com #klara",
+					"Just convinced #klara to start following " . $tweet . " dungville.com",
+					"I'm guessing #klara will like " . $tweet . " dungville.com",
+					"I think #klara has a thing for " . $tweet . " dungville.com",
+					"Guess what? #klara is also a big fan of " . $tweet . " dungville.com"
+					);
+
+					shuffle($options);
 					$data = array(
-						'status' => time() . $this->vote_model->create_tweet($votes)
+						'status' => $options[0]
 					);
 
 					$result = $this->connection->post('statuses/update', $data);
@@ -185,10 +200,14 @@ class Twitter extends CI_Controller
 	}
 
 	function test() {
-		//$this->load->model('vote_model');
+		$this->load->model('vote_model');
 		//debug($this->vote_model->create_tweet(array(1,2,3)));
 		//
-		
+		//
+		//$this->session->set_userdata('votes', array(1,2,3));
+
+		//var_dump($this->session->userdata('votes'));
+		//var_dump($this->vote_model->create_tweet($this->session->userdata('votes')));
 		debug($this->session);
 	}
 }

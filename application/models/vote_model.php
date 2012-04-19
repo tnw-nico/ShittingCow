@@ -35,25 +35,11 @@ class Vote_Model extends CI_Model {
 		$this->db->from('tiles')->join('companies', 'companies.id = tiles.companyId')->where_in('tiles.id', $votes);
 		$votes = $this->db->get();
 		$votes = ($votes->result());
-		$last_key = end(array_keys($votes));
+		$array = array();
 		foreach ($votes as $key => $tile) {
-			if (count($votes) == 1)
-			{
-				$votes_text = $tile->name;
-				break;
-			}
-    		if ($key == $last_key) {
-	       		$votes_text = $votes_text . ' and ' . ((isset($tile->twitter) && $tile->twitter != '')? $tile->twitter : $tile->name);
-    		} else {
-    			if (count($votes == 2)){
-	    			$votes_text = $votes_text  . ' ' . ((isset($tile->twitter) && $tile->twitter != '')? $tile->twitter : $tile->name );
-        		} else {
-	    			$votes_text = $votes_text  . ' ' . ((isset($tile->twitter) && $tile->twitter != '')? $tile->twitter : $tile->name ). ',';
-		       	}
-    		}
+			$array[] = (isset($tile->twitter) && $tile->twitter != '')? '@' . $tile->twitter : $tile->name;
 		}
-
-		return $votes_text;
+		return $this->ImplodeToEnglish($array);
 	}
 
 
@@ -64,24 +50,29 @@ class Vote_Model extends CI_Model {
 		$this->db->from('tiles')->join('companies', 'companies.id = tiles.companyId')->where_in('tiles.id', $votes);
 		$votes = $this->db->get();
 		$votes = ($votes->result());
-		$last_key = end(array_keys($votes));
+
+		$array = array();
 		foreach ($votes as $key => $tile) {
-			if (count($votes) == 1)
-			{
-				$votes_text = $tile->name;
-				break;
-			}
-    		if ($key == $last_key) {
-	       		$votes_text = $votes_text . ' and ' . $tile->name;
-    		} else {
-    			if (count($votes) == 2){
-	    			$votes_text = $votes_text  . ' ' . $tile->name;
-        		} else {
-	    			$votes_text = $votes_text  . ' ' . $tile->name . ',';
-		       	}
-    		}
+			$array[] = $tile->name;
 		}
-		return $votes_text;
+
+		return $this->ImplodeToEnglish($array);
+	}
+
+
+	function ImplodeToEnglish ($array) {
+    // sanity check
+    if (!$array || !count ($array))
+        return '';
+
+    // get last element
+    $last = array_pop ($array);
+
+    // if it was the only element - return it
+    if (!count ($array))
+        return $last;
+
+    return implode (', ', $array).' and '.$last;
 	}
 
 

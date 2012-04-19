@@ -1,3 +1,4 @@
 .DS_Store
 wwwroot/.DS_Store
 application/config/mailchimp.php
+application/config/database.php

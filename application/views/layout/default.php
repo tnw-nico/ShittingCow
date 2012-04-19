@@ -7,7 +7,7 @@
 
 	<meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
 
-	<title></title>
+	<title>Dungville, meet Klara our favourite Dutch cow</title>
 	<meta name=description content="">
 
 
@@ -30,7 +30,7 @@
 		<script>
 		  window.fbAsyncInit = function() {
 		    FB.init({
-		      appId      : '134017016692571', // App ID
+		      appId      : '213452642097110', // App ID
 		      status     : true, // check login status
 		      cookie     : true, // enable cookies to allow the server to access the session
 		      xfbml      : true  // parse XFBML
@@ -52,17 +52,32 @@
 			</div>
 
 			<div id="intro">
-				<p class="center bold">During the TNW conference 2012 there will be a cow on a nearby field on april 26th</span>
-				<p class="center">The cow shits about 3 times a day. You can bet where the cow will drop its fecal matter</span>
+				<p class="center bold">During the TNW conference 2012 Klara will be our special guest on friday April 26th.</span>
+				<p class="center">Klara does a <a href="" target="_blank" class="inline">"number 2"</a> around three times a day. You can predict which companies on the field she will hit.</span>
 			</div>
  			<div id="grid">
 				<?php
 				echo $content;
 				?>
 			</div>
-
+			<div id="bet" style="display:none;">
+				<img src="/img/place_bet.png" class="center" id="bet_now">
+			</div>
 			<div id="companies">
 				<p class="center big divide">Sponsors</p>
+
+				<ul style="list-style:none;width:100%;">
+
+				<?php foreach($companies->result() as $company):?>
+				<li style="width:32%;float:left;">
+					<p class="center">
+						<img src="/img/companies/logo/<?=$company->logo;?>" height="20" style="margin-right: 25px;">
+						<a href="<?=$company->url;?>" target="_blank"><?=$company->name;?></a> (<a href="http://twitter.com/<?=$company->twitter;?>" target="_blank">@</a>)
+					</p>
+				</li>
+				<?php endforeach;?>
+
+				</ul>
 			</div>
 
 			<div id="votes">
